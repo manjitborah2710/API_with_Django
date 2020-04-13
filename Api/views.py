@@ -4,13 +4,13 @@ from rest_framework.decorators import api_view
 import json
 # Create your views here.
 
-@api_view(http_method_names=['POST'])
+@api_view(http_method_names=['GET'])
 def homeView(request):
-    if(request.method=='POST'):
-        if "hello" in request.POST.keys():
-            print("hello ",request.POST["hello"])
+    if(request.method=='GET'):
+        if "hello" in request.GET.keys():
+            print("hello ",request.GET["hello"])
             d={
-                'value':request.POST['hello']
+                'value':request.GET['hello']
             }
             return JsonResponse(d)
     return JsonResponse({'value':None})
